@@ -1,6 +1,6 @@
 ---
 layout: cv
-title: cv title
+title: "cv title"
 ---
 
 
