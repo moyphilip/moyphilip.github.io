@@ -1,8 +1,7 @@
 ---
-layout: post
-title: "Ames Analysis"
-date: 2016-12-25
+layout: cv
+title: CV
 ---
 
 
-# Ames Housing Analysis
+# Philip Moy's CV
