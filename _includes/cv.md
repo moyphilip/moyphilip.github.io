@@ -7,7 +7,9 @@
 **Software** – Microsoft SQL Server, Oracle, PostgreSQL, Access, WebTrends
 
 ### Professional Experience
-**Department of Finance** - *Data Analyst*, 06/2016 - Present  
+**Department of Finance** - *Data Analyst*, 06/2016 - Present
+
+
 * Collaborate with internal teams on project go lives to ensure payment data is being captured and consistent for external agencies.
 * Developed and implemented automated ETL processes which feeds into unit-wide ad hoc reporting and trend analysis.
 * Developed and maintained an interactive online dashboard and internal dashboard for agency outreach program which summarizes an agency’s current payment services and allows constructive feedback.
