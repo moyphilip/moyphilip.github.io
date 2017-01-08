@@ -51,3 +51,8 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
     background-color: #f7f7f7;
     border-radius: 3px;
 }
+
+pre {
+    overflow: auto;
+    width: auto;
+}
