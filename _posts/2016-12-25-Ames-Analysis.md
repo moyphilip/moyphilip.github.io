@@ -13,9 +13,9 @@ The data contains almost every feature of a house in Ames, Iowa. The features co
 Steps to accomplish the objective:
 
 1. [Import Data](#import-data)
-2. Exploratory analysis
-3. Data cleaning
-4. Machine learning
+2. [Exploratory analysis](#exploratory-analysis)
+3. [Data cleaning](#data-cleaning)
+4. [Machine learning](#machine-learning)
 
 
 # Import Data
