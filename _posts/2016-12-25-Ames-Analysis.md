@@ -179,7 +179,7 @@ for k in axs:
 ```
 
 
-![png](output_13_0.png)
+![png](/img/Ames/output_13_0.png){:class="img-responsive" style="max-width:100%"}
 
 
 Let's check out the correlation each numeric feature has with the target (SalePrice). OverallQual has the highest
@@ -259,7 +259,7 @@ sns.corrplot(train[numeric_features[1:-1]], ax=ax)
 
 
 
-![png](output_17_1.png)
+![png](/img/Ames/output_17_1.png){:class="img-responsive" style="max-width:100%"}
 
 
 # Data Cleaning
@@ -741,7 +741,7 @@ plt.suptitle('Train Actual vs. Prediction')
 
 
 
-![png](output_62_1.png)
+![png](/img/Ames/output_62_1.png){:class="img-responsive" style="max-width:100%"}
 
 
 But when we use the test data to predict and plot it against the test actual it performs okay, but there are a handful of datapoints that make no sense. For example, an actual is 200,000 but predicted 850,000.
@@ -763,7 +763,7 @@ plt.suptitle('Test Actual vs. Prediction')
 
 
 
-![png](output_64_1.png)
+![png](/img/Ames/output_64_1.png){:class="img-responsive" style="max-width:100%"}
 
 
 ### Ridge Regression
@@ -842,7 +842,7 @@ plt.suptitle('Train Actual vs. Prediction')
 
 
 
-![png](output_67_1.png)
+![png](/img/Ames/output_67_1.png){:class="img-responsive" style="max-width:100%"}
 
 
 
@@ -862,7 +862,7 @@ plt.suptitle('Test Actual vs. Prediction')
 
 
 
-![png](output_68_1.png)
+![png](/img/Ames/output_68_1.png){:class="img-responsive" style="max-width:100%"}
 
 
 ### XGBoost
@@ -1239,8 +1239,7 @@ importance_df.plot(kind = 'barh', x = 'feature', figsize = (8,8), color = 'green
 
 
 
-![png](output_86_1.png)
-
+![png](/img/Ames/output_86_1.png){:class="img-responsive" style="max-width:100%"}
 
 XGBoost model fits the data much better than the previous ones. There are still some bad predictions but they were not as bad as before.
 
@@ -1263,7 +1262,7 @@ plt.suptitle('Test Actual vs. Prediction')
 
 
 
-![png](output_88_1.png)
+![png](/img/Ames/output_88_1.png){:class="img-responsive" style="max-width:100%"}
 
 
 # Conclusion
