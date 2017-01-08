@@ -150,7 +150,7 @@ for k in axs:
 ```
 
 
-![png](./_posts/output_11_0.png)
+![png](/output_11_0.png)
 
 Same as before but bar plots for categorical features. Interesting facts:
 
