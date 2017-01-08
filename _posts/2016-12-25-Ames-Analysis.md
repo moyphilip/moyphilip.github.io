@@ -16,6 +16,10 @@ Steps to accomplish the objective:
 2. [Exploratory analysis](#exploratory-analysis)
 3. [Data cleaning](#data-cleaning)
 4. [Machine learning](#machine-learning)
+ - [Simple Linear model](#simple-linear-model)
+ - [Ridge Regression](#ridge-regression)
+ - [XGBoost](#xgboost)
+5. [Conclusion](#conlusion)
 
 
 # Import Data
