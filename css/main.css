@@ -42,7 +42,7 @@ ul.posts li {
     list-style: none;
 }
 
-div.language-python {
+div.language-python.highlighter-rouge {
     padding: 16px;
     overflow: auto;
     font-size: 85%;
