@@ -150,7 +150,7 @@ for k in axs:
 ```
 
 
-![png](/img/Ames/output_11_0.png){:class="img-responsive"} {:style="max-width:100%}
+![png](/img/Ames/output_11_0.png){:class="img-responsive"} {:style="max-width:100%"}
 
 Same as before but bar plots for categorical features. Interesting facts:
 
