@@ -1,11 +1,8 @@
 ---
 layout: post
-title: "Ames Analysis"
+title: "Ames Housing Analysis"
 date: 2016-12-25
 ---
-
-
-# Ames Housing Analysis
 
 The objective of this notebook is to analyze Ames Housing data and use several regression models to predict house prices.
 
