@@ -6,11 +6,13 @@ date: 2016-12-25
 
 The objective of this notebook is to analyze Ames Housing data and use several regression models to predict house prices.
 
-The data contains almost every feature of a house in Ames, Iowa. The features consist of the number of bedrooms, location, surroundings, etc. The data is from Kaggle's Housing Prices: Advanced Regression Techniques. It comes with a train set, test set, and data dictionary. (link below).
+The data contains almost every feature of a house in Ames, Iowa. The features consist of the number of bedrooms, location, surroundings, etc. The data is from Kaggle's Housing Prices: Advanced Regression Techniques. It comes with a train set, test set, and data dictionary.
+
+[Ames Housing Data](https://www.kaggle.com/c/house-prices-advanced-regression-techniques "Ames Housing Data")
 
 Steps to accomplish the objective:
 
-1. Import data
+1. [Import Data](#import-data)
 2. Exploratory analysis
 3. Data cleaning
 4. Machine learning
