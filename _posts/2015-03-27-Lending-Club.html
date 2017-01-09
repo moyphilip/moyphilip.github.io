@@ -1,0 +1,203 @@
+---
+layout: post
+title: "Lending Club Default Analysis"
+date: 2015-03-27
+---
+<!DOCTYPE html>
+
+<html>
+<body>
+<br />
+<b>Introduction</b><br />
+<br />
+Lending Club is peer to peer lending company. There are two ways to utilize the services, as a borrower and/or an investor. As a borrower, you can apply for a loan and if accepted your loan will enter Lending Club's loan system. As a investor you can invest into loans that were accepted by Lending Club, whenever a borrower makes a payment the investor will get paid. Lending Club is a great service for both the borrower and investor. As a borrower you can receive low interest rates on a loan, and as an investor you can have high returns on investments.<br />
+<br />
+To learn more about Lending Club, you can visit their website: <a href="http://www.lendingclub.com/">www.lendingclub.com</a><br />
+<br />
+As an investor there are many risks involved, one for example is defaulted loans. A defaulted loan is when a borrower forgoes their payments, resulting in a loss for the investor. Usually a investor has a diverse portfolio(100+ loans, minimum $25/loan) to minimize their losses. Also, investors have the option of choosing what type of loans to invest in with Lending Club's filtering system.<br />
+<br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://1.bp.blogspot.com/-yThZCQosq-I/VRHaZlb_5wI/AAAAAAAABuE/R1rF2FkXV4w/s1600/Filter%2BSystem.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="http://1.bp.blogspot.com/-yThZCQosq-I/VRHaZlb_5wI/AAAAAAAABuE/R1rF2FkXV4w/s1600/Filter%2BSystem.png" height="178" width="320" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Lending Club's Loan Filter</td></tr>
+</tbody></table>
+<br />
+Lending Club does an excellent job providing investor's with current and past loan data. They currently allow you to download loan data from 2007 - 2014 and they have an API for the present loan data.<br />
+<br />
+Given a decent sized historical database I wanted to apply some classification methods to determine if a loan will default or not.<br />
+<br />
+For this project, everything was done in R.<br />
+<br />
+<b>Data Processing</b><br />
+<br />
+I first imported loans from 2007 to 2014. Then I began to remove variables that were useless to the study and not available in the current loan system. For example, "memberid" did not serve a purpose and "totalreclatefee" was not available in the current system's filter.<br />
+<br />
+For next step, I cleaned the data. I removed percentage signs from interest rates and converted them to decimals and binned some variables to lower the factor count. I added new variables for character count, for example there is a variable "emptitle" (employee title) which is written by the borrower. Each borrower has a different title, so I created a new variable that counted the amount of characters inputted by the borrower.<br />
+<br />
+My response variable was the loan status but in the raw file it had 6 factors:<br />
+<ul>
+<li>Fully Paid</li>
+<ul>
+<li><span style="background-color: white; font-family: Arial, Helvetica, sans-serif; font-size: 13.3333330154419px; line-height: 17px;">Loan has been fully repaid, either at the expiration of the 3 or 5-year term or as a result of a prepayment.</span></li>
+</ul>
+<li>Current&nbsp;</li>
+<ul>
+<li><span style="background-color: white; font-family: Arial, Helvetica, sans-serif; font-size: 13.3333330154419px; line-height: 17px;">Loan is up to date on all outstanding payments</span></li>
+</ul>
+<li>In Grace Period&nbsp;</li>
+<ul>
+<li><span style="background-color: white; font-family: Arial, Helvetica, sans-serif; font-size: 13.3333330154419px; line-height: 17px;">Loan is past due but within the 15-day grace period.&nbsp;</span></li>
+</ul>
+<li>Late (16-30 days)&nbsp;</li>
+<ul>
+<li><span style="background-color: white; font-family: Arial, Helvetica, sans-serif; font-size: 13.3333330154419px; line-height: 17px;">Loan has not been current for 16 to 30 days.</span></li>
+</ul>
+<li>Late (31-120 days)&nbsp;</li>
+<ul>
+<li><span style="background-color: white; font-family: Arial, Helvetica, sans-serif; font-size: 13.3333330154419px; line-height: 17px;">Loan has not been current for 31 to 120 days.</span></li>
+</ul>
+<li>Default&nbsp;</li>
+<ul>
+<li><span style="background-color: white; font-family: Arial, Helvetica, sans-serif; font-size: 13.3333330154419px; line-height: 17px;">Loan has not been current for 121 days or more.</span></li>
+</ul>
+<li>Charged Off&nbsp;</li>
+<ul>
+<li><span style="background-color: white; border: 0px; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-stretch: inherit; line-height: 17px; margin: 0px; padding: 0px; vertical-align: baseline;">Loan for which there is no longer a reasonable expectation of further payments. Generally, Charge Off occurs no later than 30 days after the Default status is reached. Upon Charge Off, the remaining principal balance of the Note is deducted from the account balance.</span></li>
+</ul>
+</ul>
+<br />
+<br />
+The variable was reduced to two factors, "Default" or "No.Default". I decided which statuses were considered "Default" or not based on the probability given by Lending Club. The obvious ones were Fully Paid (P(no.default) = 1) and Charged Off (P(default) = 1). I removed the loans labeled "Current" because there was no way of determining the probability of defaulting based on the data. <br />
+<br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://1.bp.blogspot.com/-YYlswi6n9nQ/VRGcIXM8PrI/AAAAAAAABt0/lGT7y3y3Y1Y/s1600/Loans%2B2007-2014.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="http://1.bp.blogspot.com/-YYlswi6n9nQ/VRGcIXM8PrI/AAAAAAAABt0/lGT7y3y3Y1Y/s1600/Loans%2B2007-2014.png" height="320" width="320" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">132,529 Loans of 2007-2014 by loan status (Default or No Default)</td></tr>
+</tbody></table>
+<br />
+<br />
+After reducing the loan statuses to two factors, I ended up with 132,529 loans and 30 predictors. Of the 132,529 loans 22% were classified as "Default" and 78% as "No.Default".<br />
+<br />
+<b>Objective</b><br />
+<br />
+The purpose of this study is to train a model that will accurately predict the loan status and reduce the 22% loss on investments.<br />
+<br />
+<b>Feature Selection</b><br />
+<br />
+I wanted to narrow down my features and only select the important ones. Random forest has a pretty good feature selection method which ranks the importance of the features. I used 20% of my data set for feature selection to speed up the running of the model.<br />
+<br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://3.bp.blogspot.com/-emvyblMtLS0/VRGaI7lF75I/AAAAAAAABtk/t7ZhQKrjZ3Y/s1600/ImportantVariables.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="http://3.bp.blogspot.com/-emvyblMtLS0/VRGaI7lF75I/AAAAAAAABtk/t7ZhQKrjZ3Y/s1600/ImportantVariables.png" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Top 50 important variables by random forest.</td></tr>
+</tbody></table>
+<br />
+<br />
+I kept the variables that had greater than 20 importance, anything below that I did not use. As you can see the importance below 20 did not vary much. The most important variable was interest rate with 100 importance, which makes sense because interest rates are high for risky candidates.<br />
+<br />
+<b>Machine Learning</b><br />
+<br />
+After extracting the 17 important features, I tested my data on four different models, C5.0, C5.0 Cost, GLM, and GBM.<br />
+<br />
+I used 80% of the data as training and 20% as testing. I trained each model with 10-fold cross validation repeated 3 times. I selected best models based on ROC.<br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://4.bp.blogspot.com/-3_JP2MRxiqU/VRIFZMsT7DI/AAAAAAAABug/6fE7-Zafmt4/s1600/ROC%2BCurve.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="http://4.bp.blogspot.com/-3_JP2MRxiqU/VRIFZMsT7DI/AAAAAAAABug/6fE7-Zafmt4/s1600/ROC%2BCurve.png" height="400" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;"><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td class="tr-caption" style="font-size: 12.8000001907349px;">ROC curve for three different models, GBM outperforms the other two.</td></tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+Based on the ROC curve, GLM performed better than C5.0 and GBM outperformed the other two. The ROC curve shows three out of the four models because C5.0 Cost model did not provide a probability output, therefore it was unable to be plotted.<br />
+<br />
+The reason why I ran a C5.0 Cost model was to reduce Type II error (False negatives). A Type II error is when it predicts "No.Default" but in actuality it is "Default". In the real world investors will not invest in anything that is predicted "Default" and will only invest in predicted "No.Defaults". So, by decreasing Type II error there will be less risk for an investor, but nothing comes for free. There is trade-off between risk and reward. As the model becomes less risky the reward decreases, hence low risk low return.<br />
+<br />
+Let's look at a hypothetical situation for C5.0 Cost and GBM. An investor only invests $1000 in predicted "No.Default" loans. The annual gain for a "No.Default" loan is 20% and annual loss for a "Default" loan is 40%.<br />
+<br />
+Annual Gain "No.Default" = 20%<br />
+Annual Loss "Default" = 40%<br />
+<span style="font-size: x-small;"><b><u><br /></u></b></span>
+<span style="font-size: x-small;"><b><u>Expected Return</u></b></span><br />
+<span style="font-size: x-small;">[(Investment * Pr(Predicted = "No.Default"| "No.Default") * Annual Gain) -&nbsp;</span><br />
+<span style="font-size: x-small;">&nbsp;(Investment * Pr(Predicted ="No.Default"| "Default") * Annual Loss)] *&nbsp;</span><br />
+<span style="font-size: x-small;">Pr(Predicted = "No.Default")</span><br />
+<br />
+C5.0 Cost 10% "Defaults"<br />
+<br />
+($1000*0.90*0.20 - $1000*0.10*0.40)*0.40 = $56.00<br />
+<br />
+GBM 18% "Defaults"<br />
+<br />
+($1000*0.82*0.20 - $1000*0.18*0.40)*0.92 = $84.64<br />
+<br />
+The GBM model has a better return even though there is a higher risk.<br />
+<br />
+<b>Confusion Matrix for Models</b><br />
+<b><br /></b>
+<b>C5.0 Trees</b><br />
+<b><br /></b>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Reference<br />
+Prediction &nbsp; Default No.Default<br />
+&nbsp; Default &nbsp; &nbsp; &nbsp; 1277 &nbsp; &nbsp; &nbsp; 1011<br />
+&nbsp; No.Default &nbsp; &nbsp;4463 &nbsp; &nbsp; &nbsp;19754<br />
+<br />
+Accuracy : 0.7935<br />
+Sensitivity: 0.22247<br />
+Specificity : 0.95131<br />
+Pos Pred Value : 0.55813 &nbsp; &nbsp; &nbsp; <br />
+Neg Pred Value : 0.81571 &nbsp; &nbsp; &nbsp; <br />
+<br />
+<b>C5.0 Cost Trees</b><br />
+<b><br /></b>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Reference<br />
+Prediction &nbsp; Default No.Default<br />
+&nbsp; Default &nbsp; &nbsp; &nbsp; 4631 &nbsp; &nbsp; &nbsp;11092<br />
+&nbsp; No.Default &nbsp; &nbsp;1109 &nbsp; &nbsp; &nbsp; 9673<br />
+<br />
+Accuracy : 0.5397<br />
+Sensitivity: 0.8068<br />
+Specificity : 0.4658<br />
+Pos Pred Value : 0.2945 &nbsp; &nbsp; &nbsp; &nbsp; <br />
+Neg Pred Value : 0.8971 &nbsp; &nbsp; &nbsp; &nbsp; <br />
+<br />
+<b>GLM</b><br />
+<b><br /></b>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Reference<br />
+Prediction &nbsp; Default No.Default<br />
+&nbsp; Default &nbsp; &nbsp; &nbsp; &nbsp;529 &nbsp; &nbsp; &nbsp; &nbsp;419<br />
+&nbsp; No.Default &nbsp; &nbsp;5211 &nbsp; &nbsp; 20346<br />
+<br />
+Accuracy: 0.7876<br />
+Sensitivity: 0.09216<br />
+Specificity: 0.97982<br />
+Pos Pred Value : 0.55802 &nbsp; &nbsp; &nbsp; <br />
+Neg Pred Value : 0.79610 &nbsp; <br />
+<br />
+<b>GBM</b><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Reference<br />
+Prediction &nbsp; Default No.Default<br />
+&nbsp;Default &nbsp; &nbsp; &nbsp; 1136 &nbsp; &nbsp; &nbsp; &nbsp;862<br />
+&nbsp;No.Default &nbsp; &nbsp;4604 &nbsp; &nbsp; &nbsp;19903<br />
+<br />
+Accuracy: 0.7938<br />
+Sensitivity: 0.19791<br />
+Specificity: 0.95849<br />
+Pos Pred Value : 0.56857 &nbsp; &nbsp; &nbsp; <br />
+Neg Pred Value : 0.81214 &nbsp; &nbsp; &nbsp; <br />
+<br />
+<br />
+<b>Future Plans</b><br />
+<b><br /></b>
+In the future, I plan to invest in loans based on the GBM model. I will measure my performance and tweak the model for better results.<br />
+<br />
+<br />
+<b>Disclaimer</b><br />
+<br />
+I am not an investment professional and will not be liable for any loss of profit. Please do your own due diligence before investing.<br />
+<b><br /></b>
+<b>Code</b><br />
+<a href="https://github.com/moyphilip/Lending-Club/">https://github.com/moyphilip/Lending-Club/</a><br />
+<div>
+<br /></div>
+</body>
+</html>
