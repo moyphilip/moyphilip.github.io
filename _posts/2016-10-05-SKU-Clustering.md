@@ -1,6 +1,8 @@
-
-# eCommerce Item Clustering with Python
-
+---
+layout: post
+title: "eCommerce Item Clustering"
+date: 2016-10-05
+---
 In this notebook I will attempt to cluster eCommerce item data by their names. The data is from an outdoor apparel brand's catalog. I want to use the item names to find similar items and group them together. For example, if it's a t-shirt it should belong in the t-shirt group.
 
 The steps to accomplish this goal will be:
