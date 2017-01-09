@@ -286,7 +286,7 @@ fig.show()
 ```
 
 
-![png](output_31_0.png)
+![png](/img/SKU-Clustering/output_31_0.png){:class="img-responsive" style="max-width:100%"}
 
 
 ## K-Means Clustering
@@ -322,7 +322,7 @@ plt.show()
 ```
 
 
-![png](output_35_0.png)
+![png](/img/SKU-Clustering/output_35_0.png){:class="img-responsive" style="max-width:100%"}
 
 
 I add the cluster label to each record in df_new
@@ -454,5 +454,5 @@ plt.show()
 ```
 
 
-![png](output_45_0.png)
+![png](/img/SKU-Clustering/output_45_0.png){:class="img-responsive" style="max-width:100%"}
 
