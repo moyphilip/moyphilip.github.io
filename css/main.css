@@ -54,11 +54,15 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
 }
 
 /* About */
-.profile-pic {
-    height: 200px;
-    width: 200px;
-}
+
 
 .col-pic {
 float: left;
+        height: 200px;
+    width: 200px;
 }
+
+/*.profile-pic {
+    height: 200px;
+    width: 200px;
+}*/
