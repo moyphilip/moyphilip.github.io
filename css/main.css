@@ -57,7 +57,7 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
 
 
 .col-body {
-    position: relative;
+    vertical-align: right;
 }
 .profile-pic {
     height: 200px;
