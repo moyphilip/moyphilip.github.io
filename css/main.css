@@ -62,6 +62,11 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
 
 /* About */
 .profile-pic {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
+    margin: 0 20px;
+}
+
+.col-pic {
+float: left
 }
