@@ -56,7 +56,7 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
 /* About */
 
 
-.col-body {
+div.col-body {
     vertical-align: right;
 }
 .profile-pic {
