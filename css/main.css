@@ -52,3 +52,8 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
     border-radius: 3px;
 }
 
+/* About */
+img.profile-pic {
+    height: 100px;
+    width: 100px;
+}
