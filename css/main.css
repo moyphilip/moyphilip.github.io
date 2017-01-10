@@ -57,6 +57,9 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
 
 /* About */
 
+.col-body {
+    margin-left:210px;
+}
 
 .profile-pic {
     height: auto;
