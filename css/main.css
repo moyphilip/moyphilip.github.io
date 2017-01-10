@@ -56,12 +56,13 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
 /* About */
 
 
-.col-pic {
+/*.col-pic {
         height: 200px;
     width: 200px;
-}
+}*/
 
-/*.profile-pic {
+.profile-pic {
     height: 200px;
     width: 200px;
-}*/
+    vertical-align: middle;
+}
