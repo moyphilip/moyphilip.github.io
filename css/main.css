@@ -33,6 +33,7 @@ footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
     position: relative;
+    clear: both;
 }
 
 ul.posts { 
@@ -58,7 +59,8 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
 
 
 .profile-pic {
-    height: 150px;
+    height: auto;
+    min-height:200px;
     width: 150px;
     float: left;
 }
