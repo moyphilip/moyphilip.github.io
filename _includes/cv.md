@@ -1,4 +1,4 @@
-# Philip Moy
+## Philip Moy
 
 ### Technical Skills
 **Programming Languages** - Python, R, SQL, VBA  
