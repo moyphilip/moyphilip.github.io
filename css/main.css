@@ -51,6 +51,10 @@ ul.posts li {
     list-style: none;
 }
 
+ul.top-links {
+    font-size:12em;
+}
+
 /* Markdown Styling */
 div.language-python.highlighter-rouge, div.highlighter-rouge {
     padding: 16px;
