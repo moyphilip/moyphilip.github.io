@@ -1,4 +1,4 @@
-<div style="text-align: right"> <a href="./Philip-Moy-Resume.pdf">Download</a></div>  
+<div class="download-link"> <a href="./Philip-Moy-Resume.pdf">Download</a></div>  
 
 ## Philip Moy 
 

@@ -55,6 +55,25 @@ ul.top-links {
     font-size:2em;
 }
 
+.download-link {
+float: right !important;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: middle;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #333333;
+    background-color: #ffffff;
+    border-color: #cccccc;
+} 
+
 /* Markdown Styling */
 div.language-python.highlighter-rouge, div.highlighter-rouge {
     padding: 16px;
