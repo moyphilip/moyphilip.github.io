@@ -1,7 +1,10 @@
-## Philip Moy
+<div style="text-align: right"> <a href="./Philip-Moy-Resume.pdf">Download</a></div>  
+
+## Philip Moy 
+
 
 ### Technical Skills
-**Programming Languages** - Python, R, SQL, VBA  
+**Programming Languages** - Python, R, SQL, VBA, HTML, CSS  
 **Machine Learning** - Linear, Logistic, Ridge, Lasso Regression, Naive Bayes, Decision Trees, K-Means, KNN, PCA  
 **Data Modules** – Processing: dplyr, pandas, numpy. Machine Learning: scipy, scikit learn, caret, xgboost. Visualizations: ggplot2, shiny, matplotlib, seaborn  
 **Software** – Microsoft SQL Server, Oracle, PostgreSQL, Access, WebTrends
@@ -11,10 +14,10 @@
 
 
 * Collaborate with internal teams on project go lives to ensure payment data is being captured and consistent for external agencies.
+* Analyze customer payment data to continuously improve policies that will benefit customers and decrease agency incurred costs.
 * Developed and implemented automated ETL processes which feeds into unit-wide ad hoc reporting and trend analysis.
 * Developed and maintained an interactive online dashboard and internal dashboard for agency outreach program which summarizes an agency’s current payment services and allows constructive feedback.
 * Evaluated the design and ease of use of payment website by analyzing visitor’s platform usage to determine how users interacted with the website that assisted with the decision to redesign pages with heavy mobile usage.
-* Assessed current payment service options by analyzing credit card data, reducing convenience fees for customers and costs for the agency from 2.49% to 2.00%.
 
 **New York City Data Science Academy** - *Data Scientist In-Training*, 02/2015 - 05/2015 
 
