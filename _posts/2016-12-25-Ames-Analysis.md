@@ -412,7 +412,7 @@ train.drop(train_remove, axis = 1, inplace = True)
 test.drop(test_remove, axis = 1, inplace = True)
 ```
 
-Here I impute the nulls. There were categorical features that had a category "None" so I assumed the nulls were suppose to be "None" or 0 if numeric. Electrical is true null because it does not have the category "None". A true null is when the value is truly unknown and cannot be assumed.
+Here we impute the nulls. There were categorical features that had a category "None" so we assume the nulls were suppose to be "None" or 0 if numeric. Electrical is true null because it does not have the category "None". A true null is when the value is truly unknown and cannot be assumed (more about this later). We create a list of true null columns to be imputed later on.
 
 
 ```python
