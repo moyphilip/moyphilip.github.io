@@ -973,7 +973,7 @@ To increase the performance of XGBoost’s speed through many iterations of the 
 
 
 ```python
-xgdmat = xgb.DMatrix(train_x_dum, train_y)
+xgdmat = xgb.DMatrix(X_train, y_train)
 ```
 
 Now we reset the parameters in a different syntax.
@@ -1251,7 +1251,8 @@ XGBoost model fits the data much better than the previous ones. There are still 
 
 
 ```python
-pred_test = optimized_GBM.predict(X_test)
+xgdmat_test = xgb.DMatrix(X_test)
+pred_test = final_gb.predict(xgdmat_test)
 #Test actual vs prediction
 plt.scatter(y_test, pred_test,  color='g')
 plt.xlabel('actual')
@@ -1286,12 +1287,13 @@ As of now, we learned how to implement the basic functionality of XGBoost librar
 
 ```python
 test_id = test.iloc[:,0]
-pred = optimized_GBM.predict(test_dum)
+xgdmat_test_dum = xgb.DMatrix(test_dum)
+pred = final_gb.predict(xgdmat_test_dum)
 ```
 
 
 ```python
 submission = pd.DataFrame({'Id':test_id,'SalePrice':pred})
 submission.loc[submission['SalePrice']<0,'SalePrice'] = 0
-submission.to_csv('xgb_submission_cv.csv',index = False)
+submission.to_csv('xgb_submission_final.csv',index = False)
 ```
