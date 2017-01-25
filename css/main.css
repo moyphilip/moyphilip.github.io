@@ -96,3 +96,9 @@ div.language-python.highlighter-rouge, div.highlighter-rouge {
     width: 150px;
     float: left;
 }
+
+/* Buzzfeed */
+.buzzfeed {
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+    margin-left:210px;
+}
