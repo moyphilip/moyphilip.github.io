@@ -24,7 +24,7 @@ h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
-p, ul.includes li {
+p {
     font-size: 1em;
     line-height: 1.4em;
     color: #333;
@@ -54,6 +54,13 @@ ul.posts li {
 
 ul.top-links {
     font-size:2em;
+}
+
+ul.includes li {
+    font-size: 1em;
+    line-height: 1.4em;
+    color: #333;
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
 }
 
 .download-link {
